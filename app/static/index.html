@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <link rel="stylesheet" type="text/css" href="/static/css/style.css" />
+</head>
+
+<body>
+  <audio controls autoplay>
+    <source src="/static/tetris.mp3" type="audio/mpeg">
+    Your browser does not support the audio element.
+  </audio>
+  <div id="game-background">
+    <div id="score-board">
+      <div>
+        <span style="margin-right: 20px;">SCORE</span>
+        <span id="score">0</span>
+      </div>
+      <div>
+        <span style="margin-right: 28px;">LINES</span>
+        <span id="lines">0</span>
+      </div>
+      <div id="next-container">
+        <span style="margin-right: 33px;">NEXT</span>
+        <canvas id="next" width="64px" height="64px"></span>
+      </div>
+    </div>
+    <canvas id="game-grid" width="160px" height="320px"></canvas>
+  </div>
+  <script src="/static/js/socketio.js"></script>
+  <script type="application/javascript" src="/static/js/main.js"></script>
+</body>
+
+</html>
