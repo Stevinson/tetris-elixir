@@ -4,32 +4,6 @@ defmodule ElixirBot.Requests do
   """
 
   @doc """
-  Carry out the actions to get the piece to format he desired board layout.
-  """
-  def make_move(current_board, current_piece, target_x, target_y, target_pattern) do
-      if current_piece.pattern -- target_pattern.pattern != [] do
-          ElixirBot.Bot.rotate(target_pattern.pattern)
-      end
-      if current_piece.pattern -- target_pattern.pattern != [] do
-          ElixirBot.Bot.rotate(target_pattern.pattern)
-      end
-      if current_piece.pattern -- target_pattern.pattern != [] do
-          ElixirBot.Bot.rotate(target_pattern.pattern)
-      end
-
-      move_count = target_x - current_piece.x
-      abs_move_count = Kernel.abs(move_count)
-
-      if move_count < 0 do
-          Enum.each(0..abs_move_count, fn _i -> ElixirBot.Requests.move_left end)
-      end
-
-      if move_count > 0 do
-          Enum.each(0..abs_move_count, fn _i -> ElixirBot.Requests.move_right end)
-      end
-  end
-
-  @doc """
   Get the game state, this comprises of:
   - grid: The current 10*20 matrix of the board
   - next: The shape of the next piece
@@ -46,17 +20,25 @@ defmodule ElixirBot.Requests do
     # states = Poison.decode!(~s(state), as: [%State{}])
   end
 
-  # TODO EdS: Note that if the game is not in play then there is no current piece returned and things will go heywire
+  def make_rotations(n) do
+    cond do
+      n == 0 -> nil
+      true -> make_rotation(); make_rotations(n-1)
+    end
+  end
 
   def make_rotation() do
+    IO.puts("Rotated")
     post_action(4)
   end
 
   def move_left() do
+    IO.puts("Moved")
     post_action(1)
   end
 
   def move_right() do
+    IO.puts("Moved")
     post_action(2)
   end
 

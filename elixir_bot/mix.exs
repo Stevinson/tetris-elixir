@@ -21,7 +21,8 @@ defmodule ElixirBot.MixProject do
     [
       {:httpoison, "~> 1.5"},
       {:poison, "~> 4.0.1"},
-      {:matrex, "~> 0.6"}
+      # {:matrex, "~> 0.6"},
+      {:matrix, "~> 0.3.2"}
     ]
   end
 end

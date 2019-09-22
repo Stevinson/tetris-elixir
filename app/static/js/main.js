@@ -313,7 +313,10 @@ class Game {
                 pattern: this.current.shape.pattern,
                 x: this.current.x,
                 y: this.current.y
-              }
+              },
+              state: this.state,
+              score: this.score,
+              lines: this.total_lines
             });
             game.update();
         });

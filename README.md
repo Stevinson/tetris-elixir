@@ -1,59 +1,17 @@
-Tetris 1.0,0
+# Tetris
 
+Bot built in Elixir to play tetris as part of hackday.
 
-  |                   ,---+---,          |
-  |                   | . | . |          |
-  |                   +---+ . |          |
-  |                   | . . . |          |
-  |                   +---+---+          |
-  |                   | . . . |          |
-  |                   | . . . |          |
-  |                   | . . . |          |
-  |                   +---+---'          | 
-  |                   | . |              |
-  |                   | . |              |
-  |                   | . |              |
-  |                   | . '---,          |
-  |                   | . . . |          |
-  |                   +---+---+          |
-  |                   | . . . |          |
-  |       _____ _____ _____ _____        |
-  |      |   __|  _  |     |   __|       |
-  |      |  |  |     | | | |   __|       |
-  |      |_____|__|__|_|_|_|_____|       |
-  |       _____ _____ _____ _____        |
-  |      |     |  |  |   __| __  |       |
-  |      |  |  |  |  |   __|    -|       |
-  |      |_____|\___/|_____|__|__|       |
-  |                                      |
-  |                   | . . . |          |
-  |                   +---+---+          |
-  |                   | . . . |          |
-  |               ,---' . ,---'       ,--+
-  |               | . . . |           | .|
-  |               '---+---+           | .+
-  |                   | . |           | .|
-  |                   | . |   ,-------+ .+
-  |                   | . |   | . . . | .|
-  |                   | . '---+ . . . + .+
-  |                   | . . . | . . . | .|
-  +-------------------+---+---+---+---+--+
-  
-Hello and welcome to the Eigen Tetris readme. Here you can find all the 
-information you need about how to get Tetris up and running on your machine. 
-The first thing you're going to need is a little bit of space, so clear an area 
-around you around 2m radius. Once you're sitting comfortably in a quiet spot,
- you can start by cloning the hackday-tetris repo. 
+## Setup
  
- After the repo is clones you'll need to run the following commands to 
- install and activate the environment:
+After cloning the repo run the following commands to install and activate the environment:
   
-`conda env create`
-
-`conda activate tetris`
-
-Then you can cd into app and run `python api.py` to start the server
-
+```
+conda env create
+conda activate tetris
+cd app
+python api.py # start the tetris server
+```
 
 ## Endpoints
 
@@ -86,3 +44,13 @@ a json object describing the current piece and its position
     x: the top left x coordinate
     y: the bottom left y coordinate
 }
+
+## Elixir bot
+
+First install elixir [here](https://elixir-lang.org/install.html#macos)
+
+`mix deps.get` to fetch and build dependencies if you add to `mix.exs`
+
+`iex -S mix` to enter application interactively i.e. compile and drop inside iex session with code loaded.
+
+When the tetris server ir running, `ElixirBot.Bot.play()` will start the bot playing.
